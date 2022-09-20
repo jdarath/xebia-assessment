@@ -1,0 +1,108 @@
+
+$blue-cornflower: #7ba6f6;
+$blue-royal: #246aef;
+
+@mixin main-wrapper {
+    margin: 0px auto;
+    max-width: 960px;
+    width: 100%;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: black;
+    padding: 12px 0;
+    h1 {
+        color: white;
+        text-align: center;
+        text-transform: capitalize;
+        @include main-wrapper;
+    }
+}
+main {
+    
+    > * {
+        @include main-wrapper();
+        padding: 20px 0;
+    }
+    .search-wrapper {
+        max-width: 400px;
+        position: relative;
+        input[type=text] {
+            border: 1px solid silver;
+            border-radius: 4px;
+            max-width: calc(100% - 22px);
+            padding: .625rem;
+            width: calc(100% - 22px);
+        }
+        svg {
+            color: silver;
+            position: absolute;
+            right: calc(.625rem + 1px);
+            top: calc(20px + .625rem + 1px);
+        }
+    }
+    
+    .label-stargazers {
+        color: silver;
+        display: block;
+        font-size: 12px;
+    }
+    .topic {
+        &--header {
+            align-items: flex-start;
+            display: flex;
+            justify-content: flex-start;
+        }
+        &--toggler {
+            color: $blue-cornflower;
+            cursor: pointer;
+            margin: 4px .625rem 0 0;
+        }
+        &--name {
+            color: $blue-royal;
+        }
+        &--list {
+            margin-left: 20px;
+        }
+        &--item {
+            margin-top: 10px;
+        }
+    }
+    .error-msg {
+        background-color: #ffe7e7;
+        border-radius: 4px;
+        color: #cc6e69;
+        display: inline-block;
+        font-size: .75rem;
+        font-weight: bold;
+        padding: .5em;
+    }
+    .loading {
+        color: $blue-cornflower;
+        font-size: 1.5rem;
+        margin: 1rem 0 0 20px;
+        -webkit-animation: spin 1s linear infinite;
+        -moz-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
